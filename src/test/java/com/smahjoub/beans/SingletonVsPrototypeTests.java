@@ -19,7 +19,7 @@ public class SingletonVsPrototypeTests {
 
         var singletonBean2 =  ctx.getBean(SingletonBean.class);
         assertNotNull(singletonBean2);
-        assertEquals(singletonBean.getInstantiationTime(), singletonBean2.getInstantiationTime());
+        assertEquals(singletonBean, singletonBean2);
 
         var prototypeBean =  ctx.getBean(PrototypeBean.class);
         assertNotNull(prototypeBean);
@@ -27,6 +27,6 @@ public class SingletonVsPrototypeTests {
         var prototypeBean2 =  ctx.getBean(PrototypeBean.class);
         assertNotNull(prototypeBean2);
 
-        assertNotEquals(prototypeBean.getInstantiationTime(), prototypeBean2.getInstantiationTime());
+        assertNotEquals(prototypeBean, prototypeBean2);
     }
 }
