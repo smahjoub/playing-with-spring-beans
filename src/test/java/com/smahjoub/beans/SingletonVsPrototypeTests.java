@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SingletonVsPrototypeTests {
 
     @Test
-    public void testSingletonShouldBeTheSame(){
+    public void singletonShouldBeTheSame(){
         var ctx = new AnnotationConfigApplicationContext(SimpleConfiguration.class);
 
         var singletonBean =  ctx.getBean(SingletonBean.class);
