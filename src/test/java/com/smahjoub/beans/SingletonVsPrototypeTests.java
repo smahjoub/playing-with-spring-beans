@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SingletonVsPrototypeTests {
 
     @Test
-    public void testSingletonVsPrototype(){
+    public void testSingletonShouldBeTheSame(){
         var ctx = new AnnotationConfigApplicationContext(SimpleConfiguration.class);
 
         var singletonBean =  ctx.getBean(SingletonBean.class);
@@ -20,6 +20,14 @@ public class SingletonVsPrototypeTests {
         var singletonBean2 =  ctx.getBean(SingletonBean.class);
         assertNotNull(singletonBean2);
         assertEquals(singletonBean, singletonBean2);
+
+    }
+
+
+    @Test
+    public void prototypeShouldNotBeTheSame(){
+        var ctx = new AnnotationConfigApplicationContext(SimpleConfiguration.class);
+
 
         var prototypeBean =  ctx.getBean(PrototypeBean.class);
         assertNotNull(prototypeBean);
